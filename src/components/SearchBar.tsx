@@ -1,3 +1,4 @@
+// SearchBar: search input and submit button (text or icon)
 import React, { useState } from 'react';
 import {
   View,
@@ -7,14 +8,14 @@ import {
   StyleSheet,
 } from 'react-native';
 import { colors, radius, spacing } from '../theme/constants';
+import { SearchNormal1 } from 'iconsax-react-native';
 
 interface Props {
   onSearch: (city: string) => void;
-  accent?: string;
   iconButton?: boolean;
 }
 
-export default function SearchBar({ onSearch, accent, iconButton }: Props) {
+export default function SearchBar({ onSearch, iconButton }: Props) {
   const [city, setCity] = useState('');
 
   const handleSubmit = () => {
@@ -45,13 +46,16 @@ export default function SearchBar({ onSearch, accent, iconButton }: Props) {
       )}
       <TouchableOpacity
         onPress={handleSubmit}
-        style={[
-          styles.searchBtn,
-          { backgroundColor: accent || colors.primary },
-        ]}
+        style={[styles.searchBtn]}
         accessibilityLabel="Search"
       >
-        <Text style={styles.searchText}>{iconButton ? '🔍' : 'Search'}</Text>
+        <Text style={styles.searchText}>
+          {iconButton ? (
+            <SearchNormal1 size="24" color={colors.text} variant="Outline" />
+          ) : (
+            'Search'
+          )}
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -85,8 +89,9 @@ const styles = StyleSheet.create({
   searchBtn: {
     paddingHorizontal: spacing.lg,
     paddingVertical: spacing.sm,
-    backgroundColor: colors.primary,
     borderRadius: radius.full,
+    borderWidth: 2,
+    borderColor: colors.border,
   },
   searchText: { color: '#fff', fontWeight: '700' },
 });

@@ -1,4 +1,7 @@
-// Simple theme selection using the “weather[0].main” field from the Weather API
+// themeFromMain: picks accent colors from weather[0].main (Clear, Clouds, Rain...)
+// This is no longer used in the app, but kept for reference
+/* This function was created to determine the background color based on the weather, but it was not used. It may be used in the future. */
+
 export function themeFromMain(main?: string) {
   const key = (main || '').toLowerCase();
   if (key.includes('clear')) {

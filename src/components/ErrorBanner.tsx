@@ -1,3 +1,4 @@
+// ErrorBanner: lightweight inline error message container
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { colors, radius, spacing } from '../theme/constants';

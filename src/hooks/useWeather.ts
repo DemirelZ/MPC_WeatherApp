@@ -1,3 +1,4 @@
+// useWeather: fetches current weather and manages loading/error/data state
 import { useState, useCallback } from 'react';
 import { getCurrentWeather } from '../services/weatherApi';
 import type { WeatherApiResponse } from '../types/weather';
@@ -25,5 +26,7 @@ export function useWeather() {
     }
   }, []);
 
-  return { data, loading, error, fetchWeather };
+  const clearError = useCallback(() => setError(null), []);
+
+  return { data, loading, error, fetchWeather, clearError };
 }

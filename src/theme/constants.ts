@@ -1,3 +1,4 @@
+// Design tokens: base colors, radii, spacing, and shadows
 export const colors = {
   bg: '#0b1220',
   card: '#0f172a',
@@ -7,6 +8,7 @@ export const colors = {
   primary: '#2563eb',
   dangerBg: '#2b1111',
   dangerText: '#fecaca',
+  accent: '#286573',
 };
 
 export const radius = {

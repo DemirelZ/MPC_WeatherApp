@@ -1,7 +1,7 @@
+// SearchModal: wraps SearchBar inside a modal; shows loader and error state
 import React from 'react';
 import {
   Modal,
-  SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
@@ -10,10 +10,12 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import SearchBar from './SearchBar';
 import Loader from './Loader';
 import ErrorBanner from './ErrorBanner';
 import { colors, spacing } from '../theme/constants';
+import { CloseCircle } from 'iconsax-react-native';
 
 interface Props {
   visible: boolean;
@@ -21,7 +23,6 @@ interface Props {
   onSearch: (city: string) => void;
   loading: boolean;
   error: string | null;
-  accent: string;
 }
 
 export default function SearchModal({
@@ -30,7 +31,6 @@ export default function SearchModal({
   onSearch,
   loading,
   error,
-  accent,
 }: Props) {
   return (
     <Modal
@@ -49,14 +49,13 @@ export default function SearchModal({
               <TouchableOpacity
                 onPress={onRequestClose}
                 accessibilityLabel="Close"
-                style={[styles.closeBtn, { borderColor: accent }]}
               >
-                <Text style={[styles.closeText, { color: accent }]}>×</Text>
+                <CloseCircle size="32" color={colors.text} variant="Outline" />
               </TouchableOpacity>
             </View>
             <Text style={styles.title}>Search city</Text>
-            <SearchBar onSearch={onSearch} accent={accent} iconButton />
-            {loading && <Loader color={accent} />}
+            <SearchBar onSearch={onSearch} iconButton />
+            {loading && <Loader />}
             {error && <ErrorBanner message={error} />}
           </ScrollView>
         </SafeAreaView>

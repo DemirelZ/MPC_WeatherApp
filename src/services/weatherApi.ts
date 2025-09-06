@@ -1,3 +1,4 @@
+// weatherApi: axios-based client for OpenWeather current weather endpoint
 import axios from 'axios';
 import type { WeatherApiResponse } from '../types/weather';
 import { OPENWEATHER_API_KEY } from '@env';
@@ -10,7 +11,7 @@ export async function getCurrentWeather(
 ): Promise<WeatherApiResponse> {
   const url = `${BASE_URL}/weather?q=${encodeURIComponent(
     city,
-  )}&appid=${OPENWEATHER_API_KEY}&units=metric&lang=tr`;
+  )}&appid=${OPENWEATHER_API_KEY}&units=metric&lang=en`;
   const { data } = await axios.get<WeatherApiResponse>(url);
   return data;
 }
