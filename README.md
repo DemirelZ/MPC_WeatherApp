@@ -102,3 +102,7 @@ rm -rf $TMPDIR/metro-* $TMPDIR/haste-map-*
 
 - API key is bundled in the app when using `.env` replacement; prefer restricted keys.
 - The app language is English; errors like “City not found.” are returned by the app, not the API.
+
+### Short screens gif here
+
+![](/screens.gif)
