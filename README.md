@@ -1,6 +1,6 @@
-### Weather App (React Native)
+### Weather App (React Native CLI)
 
-Small weather application using OpenWeather Current Weather API. Search is done inside a modal; successful results close the modal and render on the home screen. The UI is simple, clean, and theme-accented based on the weather condition.
+Small weather application using OpenWeather Current Weather API. Search is done inside a modal; successful results close the modal and render on the home screen. The UI is simple and clean.
 
 ### Features
 
@@ -74,7 +74,7 @@ Note: RN 0.81 requires Xcode 16.1+.
 
 ### Project structure (src)
 
-- `components/`: `SearchBar`, `SearchModal`, `Loader`, `ErrorBanner`, `EmptyState`
+- `components/`: `SearchBar`, `SearchModal`, `HomeContent`, `Loader`, `ErrorBanner`, `EmptyState`
 - `hooks/`: `useWeather`
 - `services/`: `weatherApi.ts`
 - `types/`: `weather.ts`
